@@ -21,6 +21,8 @@ function Profile() {
   const handleChange = (e) => {
     const file = e.target.files[0];
     const preViewURL = URL.createObjectURL(file);
+    console.log(preViewURL);
+
     setPreviewUrl(preViewURL);
   };
 

@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  HashRouter,
-  Routes,
-  Route,
-} from "react-router";
+import { HashRouter, Routes, Route } from "react-router";
 
 //Pages
 import {
@@ -21,7 +16,7 @@ function AppRoutes() {
   return (
     <HashRouter>
       <Routes>
-        <Route element={<DefaultLayout />}>
+        <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="modal-demo" element={<ModalDemo />} />
           <Route path="scroll-demo" element={<ScrollDemo />} />

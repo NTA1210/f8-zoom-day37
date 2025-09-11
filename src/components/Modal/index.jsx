@@ -70,7 +70,8 @@ function Modal({
       }
     };
 
-    document.addEventListener("click", handleClick);
+    shouldCloseOnOverlayClick &&
+      document.addEventListener("click", handleClick);
 
     return () => {
       document.removeEventListener("click", handleClick);
