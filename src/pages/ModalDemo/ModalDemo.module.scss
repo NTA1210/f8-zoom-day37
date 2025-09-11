@@ -1,0 +1,21 @@
+.wrapper {
+  word-wrap: break-word; /* hoặc */
+  overflow-wrap: break-word;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.content {
+  width: 500px;
+  margin-top: 12px;
+}
+
+.custom-modal {
+  background: linear-gradient(
+    90deg,
+    rgb(121, 183, 225),
+    rgb(255, 255, 255)
+  ) !important;
+}
