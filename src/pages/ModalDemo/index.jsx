@@ -10,11 +10,33 @@ import { Modal } from "../../components";
 const cx = classNames.bind(styles);
 
 function ModalDemo() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen1, setIsModalOpen1] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
+  const [isModalOpen4, setIsModalOpen4] = useState(false);
+  const [isModalOpen5, setIsModalOpen5] = useState(false);
+  const [isModalOpen6, setIsModalOpen6] = useState(false);
 
   return (
     <div className={cx("wrapper")}>
-      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen1(true)}>
+        Open Basic Modal
+      </button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen2(true)}>
+        Open Modal with Animation
+      </button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen3(true)}>
+        Modal không đóng khi click overlay
+      </button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen4(true)}>
+        Modal không đóng khi nhấn Esc
+      </button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen5(true)}>
+        Modal với custom className
+      </button>
+      <button className={cx("btn")} onClick={() => setIsModalOpen6(true)}>
+        Modal với callbacks
+      </button>
       <p>
         asdashdkajshdkjashdkasjdhaklsdjhlsakjsdlcdsjhcsdlkjc halkdsjch
         sldkjhsdckjhsd kcjsdhckj shclkjdh ckajsdhclkjsdhcajhskjchslkjc
@@ -130,22 +152,75 @@ function ModalDemo() {
         HGKJASDhLKGjH LDKjHGASLKDg h
       </p>
 
+      {/* modal 1 */}
       <Modal
-        isOpen={isModalOpen}
-        onAfterOpen={() => console.log("Modal đã mở")}
-        onAfterClose={() => console.log("Modal đã đóng")}
-        onRequestClose={() => setIsModalOpen(false)}
-        closeTimeoutMS={300}
-        overlayClassName={cx("custom-overlay")}
-        className={cx("custom-modal")}
-        bodyOpenClassName={cx("modal-open")}
-        htmlOpenClassName={cx("modal-open")}
+        isOpen={isModalOpen1}
+        onRequestClose={() => setIsModalOpen1(false)}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Basic Modal</p>
+          <button onClick={() => setIsModalOpen1(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 2 */}
+      <Modal
+        isOpen={isModalOpen2}
+        onRequestClose={() => setIsModalOpen2(false)}
+        closeTimeoutMS={3000}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Custom Modal</p>
+          <button onClick={() => setIsModalOpen2(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 3 */}
+      <Modal
+        isOpen={isModalOpen3}
+        onRequestClose={() => setIsModalOpen3(false)}
         shouldCloseOnOverlayClick={false}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Custom Modal</p>
+          <button onClick={() => setIsModalOpen3(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 4 */}
+      <Modal
+        isOpen={isModalOpen4}
+        onRequestClose={() => setIsModalOpen4(false)}
         shouldCloseOnEsc={false}
       >
         <div className={cx("content")}>
-          <p>Đây là nội dung modal</p>
-          <button onClick={() => setIsModalOpen(false)}>Đóng</button>
+          <p>Đây là Custom Modal</p>
+          <button onClick={() => setIsModalOpen4(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 5 */}
+      <Modal
+        isOpen={isModalOpen5}
+        onRequestClose={() => setIsModalOpen5(false)}
+        className={cx("custom-modal")}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Custom Modal</p>
+          <button onClick={() => setIsModalOpen5(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 6 */}
+      <Modal
+        isOpen={isModalOpen6}
+        onRequestClose={() => setIsModalOpen6(false)}
+        onAfterOpen={() => console.log("Modal đã mở")}
+        onAfterClose={() => console.log("Modal đã đóng")}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Custom Modal</p>
+          <button onClick={() => setIsModalOpen6(false)}>Đóng</button>
         </div>
       </Modal>
     </div>

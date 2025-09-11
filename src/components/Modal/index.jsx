@@ -17,8 +17,8 @@ function Modal({
   className,
   bodyOpenClassName,
   htmlOpenClassName,
-  shouldCloseOnOverlayClick = false,
-  shouldCloseOnEsc = false,
+  shouldCloseOnOverlayClick = true,
+  shouldCloseOnEsc = true,
 }) {
   const handleRequestClose = () => {
     setTimeout(() => {
@@ -78,23 +78,23 @@ function Modal({
     };
   }, [isOpen, shouldCloseOnOverlayClick]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("body", className)}>
-        <div className={cx("header")}>
-          <p className={cx("title")}>Modal</p>
-          <button className={cx("close")} onClick={handleRequestClose}>
-            X
-          </button>
-        </div>
+      <div
+        // style={{ "--transition-duration": `${closeTimeoutMS}ms` }}
+        className={cx("overlay", isOpen && "open", overlayClassName)}
+      >
+        <div className={cx("body", className)}>
+          <div className={cx("header")}>
+            <p className={cx("title")}>Modal</p>
+            <button className={cx("closeBtn")} onClick={handleRequestClose}>
+              X
+            </button>
+          </div>
 
-        {children}
+          {children}
+        </div>
       </div>
-      <div className={cx("overlay", overlayClassName)}></div>
     </div>
   );
 }

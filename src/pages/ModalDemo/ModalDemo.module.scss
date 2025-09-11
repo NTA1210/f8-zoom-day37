@@ -19,3 +19,11 @@
     rgb(255, 255, 255)
   ) !important;
 }
+
+.btn {
+  padding: 5px 10px;
+  margin: 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}

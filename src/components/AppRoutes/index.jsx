@@ -16,7 +16,7 @@ function AppRoutes() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<DefaultLayout />}>
+        <Route element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="modal-demo" element={<ModalDemo />} />
           <Route path="scroll-demo" element={<ScrollDemo />} />
