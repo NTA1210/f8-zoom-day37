@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
 
 //Images
-import defaultImage from "../../assets/images/user-logo.png";
+import defaultImage from "@/assets/images/user-logo.png";
 
 const cx = classNames.bind(styles);
 

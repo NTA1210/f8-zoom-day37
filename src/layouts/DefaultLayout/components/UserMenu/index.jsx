@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { useState, useEffect, useRef } from "react";
 
 //icon
-import user_logo from "../../../../assets/images/user-logo.png";
+import user_logo from "@/assets/images/user-logo.png";
 
 // scss
 import styles from "./UserMenu.module.scss";

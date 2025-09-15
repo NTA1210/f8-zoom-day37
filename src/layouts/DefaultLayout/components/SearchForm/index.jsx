@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./SearchForm.module.scss";
 
 // icon
-import DeleteIcon from "../../../../assets/icons/DeleteIcon";
+import DeleteIcon from "@/assets/icons/DeleteIcon";
 
 //Comp
 import ItemSearch from "./ItemSearch";

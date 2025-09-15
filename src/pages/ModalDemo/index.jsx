@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 //scss
 import styles from "./ModalDemo.module.scss";
 
 // Comp
-import { Modal } from "../../components";
+import { Modal } from "@/components";
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +16,8 @@ function ModalDemo() {
   const [isModalOpen4, setIsModalOpen4] = useState(false);
   const [isModalOpen5, setIsModalOpen5] = useState(false);
   const [isModalOpen6, setIsModalOpen6] = useState(false);
+  const [isModalOpen7, setIsModalOpen7] = useState(false);
+  const btnRef = useRef();
 
   return (
     <div className={cx("wrapper")}>
@@ -37,6 +39,16 @@ function ModalDemo() {
       <button className={cx("btn")} onClick={() => setIsModalOpen6(true)}>
         Modal với callbacks
       </button>
+
+      <div className={cx("actions")}>
+        <button className={cx("btn")} onClick={() => btnRef.current.open()}>
+          Open modal ref
+        </button>
+
+        <button className={cx("btn")} onClick={() => btnRef.current.toggle()}>
+          Toggle modal ref
+        </button>
+      </div>
       <p>
         asdashdkajshdkjashdkasjdhaklsdjhlsakjsdlcdsjhcsdlkjc halkdsjch
         sldkjhsdckjhsd kcjsdhckj shclkjdh ckajsdhclkjsdhcajhskjchslkjc
@@ -221,6 +233,22 @@ function ModalDemo() {
         <div className={cx("content")}>
           <p>Đây là Custom Modal</p>
           <button onClick={() => setIsModalOpen6(false)}>Đóng</button>
+        </div>
+      </Modal>
+
+      {/* modal 7 */}
+      <Modal
+        isOpen={isModalOpen7}
+        onRequestOpen={() => setIsModalOpen7(true)}
+        onRequestToggle={() => setIsModalOpen7(!isModalOpen7)}
+        onRequestClose={() => setIsModalOpen7(false)}
+        ref={btnRef}
+      >
+        <div className={cx("content")}>
+          <p>Đây là Custom Modal useRef</p>
+          <button onClick={() => btnRef.current.close()}>
+            Close modal ref
+          </button>
         </div>
       </Modal>
     </div>

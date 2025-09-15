@@ -1,25 +1,34 @@
 import classNames from "classnames/bind";
-import { useEffect } from "react";
+import { useEffect, useImperativeHandle, forwardRef, useState } from "react";
 
 //scss
 import styles from "./Modal.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Modal({
-  children,
-  isOpen = false,
-  onAfterOpen = () => {},
-  onAfterClose = () => {},
-  onRequestClose = () => {},
-  closeTimeoutMS = 0,
-  overlayClassName,
-  className,
-  bodyOpenClassName,
-  htmlOpenClassName,
-  shouldCloseOnOverlayClick = true,
-  shouldCloseOnEsc = true,
-}) {
+function Modal(
+  {
+    children,
+    isOpen = false,
+    onAfterOpen = () => {},
+    onAfterClose = () => {},
+    onRequestOpen = () => {},
+    onRequestToggle = () => {},
+    onRequestClose = () => {},
+    closeTimeoutMS = 0,
+    overlayClassName,
+    className,
+    bodyOpenClassName,
+    htmlOpenClassName,
+    shouldCloseOnOverlayClick = true,
+    shouldCloseOnEsc = true,
+  },
+  ref
+) {
+  const [_isOpen, setIsOpen] = useState(isOpen);
+
+  console.log("re-render", isOpen);
+
   const handleRequestClose = () => {
     setTimeout(() => {
       onRequestClose();
@@ -52,7 +61,7 @@ function Modal({
 
     isOpen &&
       htmlOpenClassName &&
-      document.body.classList.add(htmlOpenClassName);
+      document.documentElement.classList.add(htmlOpenClassName);
 
     if (isOpen && onAfterOpen) {
       onAfterOpen();
@@ -78,6 +87,24 @@ function Modal({
     };
   }, [isOpen, shouldCloseOnOverlayClick]);
 
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        open: () => {
+          onRequestOpen();
+        },
+        close: () => {
+          handleRequestClose();
+        },
+        toggle: () => {
+          onRequestToggle();
+        },
+      };
+    },
+    []
+  );
+
   return (
     <div className={cx("wrapper")}>
       <div
@@ -99,4 +126,4 @@ function Modal({
   );
 }
 
-export default Modal;
+export default forwardRef(Modal);

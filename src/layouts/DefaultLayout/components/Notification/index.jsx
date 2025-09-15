@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { useState, useEffect, useRef } from "react";
 
 //icon
-import BellIcon from "../../../../assets/icons/BellIcon";
+import BellIcon from "@/assets/icons/BellIcon";
 
 // scss
 import styles from "./Notification.module.scss";
@@ -46,7 +46,7 @@ function Notification() {
             <button className={cx("viewAllBtn")}>Đánh dấu đã đọc</button>
           </header>
           <div className={cx("list")}>
-            {[...Array(5)].map((item, index) => (
+            {[...Array(10)].map((item, index) => (
               <NotificationItem key={index} />
             ))}
           </div>

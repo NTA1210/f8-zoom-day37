@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import styles from "./AppLogo.module.scss";
 
 // icon
-import logo from "../../../../assets/images/f8-logo.png";
+import logo from "@/assets/images/f8-logo.png";
 
 const cx = classNames.bind(styles);
 

@@ -7,10 +7,15 @@ import {
   ModalDemo,
   ScrollDemo,
   Profile,
-} from "../../pages";
+  PerformanceDemo,
+  FocusDemo,
+  HOCDemo,
+  RenderPropsDemo,
+  CustomHooksDemo,
+} from "@/pages";
 
 //Layouts
-import { DefaultLayout } from "../../layouts";
+import { DefaultLayout } from "@/layouts";
 
 function AppRoutes() {
   return (
@@ -21,6 +26,11 @@ function AppRoutes() {
           <Route path="modal-demo" element={<ModalDemo />} />
           <Route path="scroll-demo" element={<ScrollDemo />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="performance-demo" element={<PerformanceDemo />} />
+          <Route path="focus-demo" element={<FocusDemo />} />
+          <Route path="hoc-demo" element={<HOCDemo />} />
+          <Route path="render-props-demo" element={<RenderPropsDemo />} />
+          <Route path="custom-hooks-demo" element={<CustomHooksDemo />} />
         </Route>
 
         {/* Not Found Page */}

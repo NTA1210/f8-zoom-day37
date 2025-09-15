@@ -83,6 +83,12 @@
   }
 }
 
+.list {
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .item {
   display: flex;
   align-items: center;

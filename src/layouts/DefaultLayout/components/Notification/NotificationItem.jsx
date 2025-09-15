@@ -1,4 +1,4 @@
-import logo from "../../../../assets/images/f8-logo.png";
+import logo from "@/assets/images/f8-logo.png";
 
 import classNames from "classnames/bind";
 import styles from "./Notification.module.scss";

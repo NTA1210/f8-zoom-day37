@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./MyCourses.module.scss";
 
 //images
-import course1 from "../../../../assets/images/course1.png";
+import course1 from "@/assets/images/course1.png";
 
 const cx = classNames.bind(styles);
 

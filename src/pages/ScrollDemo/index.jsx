@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./ScrollDemo.module.scss";
 
 // Comp
-import { GoToTop } from "../../components";
+import { GoToTop } from "@/components";
 
 const cx = classNames.bind(styles);
 
